@@ -74,19 +74,11 @@ class LoginRegisterController extends Controller
     }
 
     public function logout(Request $request)
-{
-    // Logout user
-    Auth::logout();
-
-    // Invalidate session
-    $request->session()->invalidate();
-
-    // Regenerate session token
-    $request->session()->regenerateToken();
-
-    // Redirect to login page with success message
-    return redirect()->route('login')
-        ->withSuccess('You have logged out successfully!');
-}
-
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login')
+            ->withSuccess('You have logged out successfully');;
+    }
 }
