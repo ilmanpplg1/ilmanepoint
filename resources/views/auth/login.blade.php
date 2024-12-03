@@ -12,7 +12,7 @@
 @section('content')
 
 
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<body class="bg-gray-500 flex items-center justify-center min-h-screen">
     
 
     <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
