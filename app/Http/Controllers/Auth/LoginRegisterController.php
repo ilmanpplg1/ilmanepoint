@@ -10,6 +10,17 @@ use App\Models\User;
 
 class LoginRegisterController extends Controller
 {
+    public function index()
+    {
+        $users = User::latest()->paginate(10);
+
+        return view('admin.akun.index', compact('users'));
+    }
+    
+    public function create()
+    {
+        return view('admin.akun.create');
+    }
     public function register()
     {
         return view('auth.register');

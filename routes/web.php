@@ -22,13 +22,12 @@ Route::middleware('guest')->group(function () {
 // Group routes untuk yang sudah login dan role admin
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::post('logout', [LoginRegisterController::class, 'logout'])->name('logout');
+    Route::resource('/admin/siswa', SiswaController::class);
+    Route::resource('/admin/akun', LoginRegisterController::class);
+    Route::post('/logout', [LoginRegisterController::class, 'logout'])->name('logout');
 });
 
-// Rute untuk Dashboard
+// Rute untuk Dashboard (user yang sudah login)
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
-
-// Resource route for Siswa
-Route::resource('siswa', SiswaController::class);
