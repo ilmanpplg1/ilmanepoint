@@ -10,6 +10,7 @@ use App\Models\User;
 
 class LoginRegisterController extends Controller
 {
+
     public function index()
     {
         $users = User::latest()->paginate(10);
@@ -82,6 +83,9 @@ class LoginRegisterController extends Controller
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
+        
+
+        
     }
 
     public function logout(Request $request)

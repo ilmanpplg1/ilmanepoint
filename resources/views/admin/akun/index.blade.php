@@ -32,7 +32,7 @@
         </div>
     @endif
 
-    <table class="table">
+    <table class="table" border="1" cellspacing="0" cellpadding="10">
         <thead>
             <tr>
                 <th>Nama</th>
